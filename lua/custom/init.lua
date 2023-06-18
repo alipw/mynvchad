@@ -6,4 +6,12 @@
 --   command = "tabdo wincmd =",
 -- })
 --
-vim.api.nvim_command("set nowrap")
+
+vim.api.nvim_command "set nowrap"
+
+vim.cmd [[
+augroup GoImports
+  autocmd!
+  autocmd BufWritePre *.go :silent! exec "!goimports %"
+augroup END
+]]
